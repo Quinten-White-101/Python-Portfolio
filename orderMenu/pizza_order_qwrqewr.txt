@@ -1,0 +1,7 @@
+qwrqewr
+Family
+['cheese', 'pineapple', 'Mushrooms', 'pepper', 'olives']
+['pepperoni', 'sausage', 'ham', 'anchoivi', 'chicken', 'bacon', 'BBQ sauce', 'beef', 'salami', 'turkey', 'Pork', 'steak']
+[]
+Hand tossed
+0
