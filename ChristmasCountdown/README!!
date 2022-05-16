@@ -1,0 +1,5 @@
+Hello, this is my Christmas countdown Clock
+I built this program using tkinter and python 3.10
+imported date and time 
+set a date and it will give you how many
+days, hours, minutes, and seconds until the date set 
