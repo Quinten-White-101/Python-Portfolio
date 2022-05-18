@@ -1,9 +1,10 @@
 import pygame as pg
 from settings import *
+import random
 
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y):
-        self.groups = game.all_sprites
+        self.groups = game.all_sprites, game.player_group
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
         self.image = pg.Surface((TILESIZE, TILESIZE))
@@ -41,11 +42,16 @@ class Player(pg.sprite.Sprite):
                 return True
         return False
 
+
+
     def update(self):
-        self.get_keys()
-        self.x += self.vx * self.game.dt
-        self.y += self.vy * self.game.dt
-        self.rect.topleft = (self.x,self.y)
+        # self.get_keys()
+        # self.x += self.vx * self.game.dt
+        # self.y += self.vy * self.game.dt
+        # self.rect.topleft = (self.x,self.y)
+
+        x, y = pg.mouse.get_pos()
+        self.rect.center = x, y
 
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y):
@@ -59,3 +65,20 @@ class Wall(pg.sprite.Sprite):
         self.y = y
         self.rect.x = x * TILESIZE
         self.rect.y = y * TILESIZE
+
+class Food(pg.sprite.Sprite):
+    def __init__(self, game):
+        self.groups = game.all_sprites, game.food_group
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.game = game
+        self.image = pg.Surface((TILESIZE, TILESIZE))
+        self.image.fill(RED)
+        self.rect = self.image.get_rect()
+        self.x = random.randint(1,60)
+        self.y = random.randint(1,45)
+        self.rect.x = self.x * TILESIZE
+        self.rect.y = self.y * TILESIZE
+
+
+
+
